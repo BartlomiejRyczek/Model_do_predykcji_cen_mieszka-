@@ -1,1 +1,1 @@
-# Model do predykcji cen mieszka-
+# Model do predykcji cen mieszkań
