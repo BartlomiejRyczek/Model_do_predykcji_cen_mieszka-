@@ -36,7 +36,7 @@ with lasy_losowe_tab:
     year = st.number_input('Rok budowy', min_value=1800, max_value=2100, step=1, value=2024)
 
     # Przycisk do obliczenia ceny
-    submit_button = st.button(label='Oblicz cenę')
+    submit_button = st.button(label='Oszacuj cenę za pomocą RandomForestRegressor')
 
     if submit_button:
         with st.spinner('Przetwarzanie...'):
@@ -61,7 +61,7 @@ with lasy_losowe_tab:
                     # Predykcja ceny
                     prediction = model.predict(input_data)
                     prediction_value = prediction[0]
-                    st.success(f'Przewidywana cena: {prediction_value:,.2f} PLN')
+                    st.success(f'Szacowana cena mieszkania {address} wynosi: {prediction_value:,.2f} PLN')
                 except Exception as e:
                     st.error(f"Błąd podczas predykcji: {e}")
             else:
@@ -83,7 +83,7 @@ with lasy_losowe_grid_tab:
     year = st.number_input('Rok budowy', min_value=1800, max_value=2100, step=1, value=2024, key="year")
 
     # Przycisk do obliczenia ceny
-    submit_button_grid = st.button(label='Oblicz cenę grid')
+    submit_button_grid = st.button(label='Oszacuj cenę za pomocą XGBRegressor')
 
     if submit_button_grid:
         with st.spinner('Przetwarzanie...'):
@@ -108,7 +108,7 @@ with lasy_losowe_grid_tab:
                     # Predykcja ceny
                     prediction = model_grid.predict(input_data)
                     prediction_value = prediction[0]
-                    st.success(f'Przewidywana cena: {prediction_value:,.2f} PLN')
+                    st.success(f'Szacowana cena mieszkania {address} wynosi: {prediction_value:,.2f} PLN')
                 except Exception as e:
                     st.error(f"Błąd podczas predykcji: {e}")
             else:
