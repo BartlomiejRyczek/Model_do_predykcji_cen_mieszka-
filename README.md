@@ -20,9 +20,3 @@ pip install -r requirements.txt
 streamlit run app.py
 ```
 
-
-## Uwaga
-
-Wytrenowany model był zbyt duży, by wrzucić go na github. Mozna go wytrenować samemu, albo pobrać zipa z mojego google dysk.
-
-https://drive.google.com/file/d/1-YIkWltkl6WxKq71QkNzTPIFEw2n6CAF/view?usp=drive_link
