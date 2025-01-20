@@ -1,0 +1,2 @@
+# Wyklucz wszystkie pliki o rozszerzeniu `.pkl`
+*.pkl
