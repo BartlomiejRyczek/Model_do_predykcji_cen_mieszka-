@@ -4,7 +4,7 @@ import pickle
 import funkcje as f
 
 st.title('Predykcja cen mieszkań')
-lasy_losowe_tab, lasy_losowe_grid_tab= st.tabs(
+lasy_losowe_tab, xgboost= st.tabs(
     ["Predykcja cen za pomocą RandomForestRegressor", "Predykcja cen za pomocą XGBRegressor"]
 )
 
@@ -16,9 +16,9 @@ def load_model():
         return pickle.load(file)
     
 @st.cache_resource
-def load_model_grid():
-    with open('model_grid.pkl', 'rb') as file_grid:
-        return pickle.load(file_grid)
+def load_model_xgboost():
+    with open('model_xgboost.pkl', 'rb') as file_xgboost:
+        return pickle.load(file_xgboost)
 
 
 with lasy_losowe_tab:
@@ -68,8 +68,8 @@ with lasy_losowe_tab:
                 st.error("Nie można przekształcić adresu na współrzędne lub nie znaleziono miasta.")
                 
             
-with lasy_losowe_grid_tab:
-    model_grid = load_model_grid()
+with xgboost:
+    model_xgboost = load_model_xgboost()
 
     # Sekcja Prognozowania
     st.header('Wprowadź dane mieszkania')
@@ -83,9 +83,9 @@ with lasy_losowe_grid_tab:
     year = st.number_input('Rok budowy', min_value=1800, max_value=2100, step=1, value=2024, key="year")
 
     # Przycisk do obliczenia ceny
-    submit_button_grid = st.button(label='Oszacuj cenę za pomocą XGBRegressor')
+    submit_button_xgboost = st.button(label='Oszacuj cenę za pomocą XGBRegressor')
 
-    if submit_button_grid:
+    if submit_button_xgboost:
         with st.spinner('Przetwarzanie...'):
             latitude, longitude, city = f.get_coordinates(address)
             
@@ -106,7 +106,7 @@ with lasy_losowe_grid_tab:
                 
                 try:
                     # Predykcja ceny
-                    prediction = model_grid.predict(input_data)
+                    prediction = model_xgboost.predict(input_data)
                     prediction_value = prediction[0]
                     st.success(f'Szacowana cena mieszkania {address} wynosi: {prediction_value:,.2f} PLN')
                 except Exception as e:

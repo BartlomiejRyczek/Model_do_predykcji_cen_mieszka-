@@ -1,11 +1,11 @@
 import requests
 
 
-"""
-    Funckja pobiera współrzędne geograficzne (latitude, longitude) oraz miasto na podstawie podanego adresu.
-    :param address: Adres jako string
-    :return: Tuple (latitude, longitude, city) lub (None, None, None) w przypadku błędu
-""
+
+    #Funkcja pobiera współrzędne geograficzne (latitude, longitude) oraz miasto na podstawie podanego adresu.
+    #:param address: Adres jako string
+    #:return: Tuple (latitude, longitude, city) lub (None, None, None) w przypadku błędu
+
 def get_coordinates(address):
     url = 'https://nominatim.openstreetmap.org/search'
     params = {
@@ -47,11 +47,11 @@ def get_coordinates(address):
         return None, None, None
 
 
-"""
-    Funkcja extract_city_supported sprawdza, czy miasto jest wspierane przez model. Jeśli nie, zwraca 'Warszawa' jako domyślne.
-    :param city: Nazwa miasta jako string
-    :return: Nazwa wspieranego miasta
- """
+
+    #Funkcja extract_city_supported sprawdza, czy miasto jest wspierane przez model. Jeśli nie, zwraca 'Warszawa' jako domyślne.
+    #:param city: Nazwa miasta jako string
+    #:return: Nazwa wspieranego miasta
+
     
 def extract_city_supported(city):
     supported_cities = ['Warszawa', 'Kraków', 'Poznań']
