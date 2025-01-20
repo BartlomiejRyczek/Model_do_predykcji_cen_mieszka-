@@ -7,7 +7,7 @@ Projekt oparty na danych z pliku *Houses.csv* oraz modelach trenowanych w notatn
 - **app.py** – interfejs webowy oparty na Streamlit.  
 - **funkcje.py** – funkcje do pobierania współrzędnych i walidacji miasta.  
 - **analizaDanych.ipynb** – analiza i przygotowanie danych, tworzenie modelu.  
-- **model.pkl**, **model_grid.pkl** – zapisane modele używane do predykcji.  
+- **model.pkl**, **model_xgboost.pkl** – zapisane modele używane do predykcji.  
 - **requirements.txt** – lista bibliotek wymaganych do uruchomienia aplikacji.
 
 ## Uruchomienie
